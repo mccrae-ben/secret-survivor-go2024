@@ -3,7 +3,7 @@ extends Node2D
 var show_orb_chance: float
 
 func _ready() -> void:
-	GameEvents.show_exp_orbs_activated.connect(on_show_orbs)
+	GameEvents.adjust_visibility_of_items.connect(on_show_orbs)
 	
 func should_orb_be_visible(show_orb: bool):
 	if show_orb:
@@ -13,7 +13,7 @@ func should_orb_be_visible(show_orb: bool):
 	print(show_orb)	
 	
 
-func on_show_orbs(show_orbs_chance: float):
+func on_show_orbs(viz_upgrade_name: String, show_orbs_chance: float):
 	
 	if show_orbs_chance == null:
 		printerr("no orb chance")

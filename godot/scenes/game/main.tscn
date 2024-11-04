@@ -19,4 +19,7 @@
 [node name="GhoulBasic" parent="." instance=ExtResource("6_f5so4")]
 position = Vector2(233, 32)
 
+[node name="GhoulBasic2" parent="." instance=ExtResource("6_f5so4")]
+position = Vector2(233, 239)
+
 [node name="GameObjects" type="Node2D" parent="." groups=["GameObjectsParent"]]
