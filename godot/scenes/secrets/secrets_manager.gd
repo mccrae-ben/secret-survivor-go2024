@@ -9,7 +9,11 @@ var see_exp_orbs_secret = preload("res://scenes/secrets/secret/show_exp_orbs_sec
 
 func _ready():
 	secrets_pool.append(see_exp_orbs_secret)
-	var exp_orb_instance = see_exp_orbs_secret.instantiate()
-	add_child(exp_orb_instance)
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		var exp_orb_instance = see_exp_orbs_secret.instantiate()
+		add_child(exp_orb_instance)
+		
 
 	

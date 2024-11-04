@@ -21,6 +21,5 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-
-	#print(health_component.current_health)
+	
 	move_and_slide()
