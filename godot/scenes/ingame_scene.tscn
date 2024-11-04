@@ -10,6 +10,7 @@
 script = ExtResource("1_objyc")
 
 [node name="NodeExample" type="Sprite2D" parent="." groups=["Persist"]]
+visible = false
 texture = ExtResource("2_h1yxu")
 script = ExtResource("3_a5686")
 

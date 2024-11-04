@@ -1,28 +1,47 @@
-[gd_scene load_steps=6 format=3 uid="uid://5hy18ojccy3c"]
+[gd_scene load_steps=9 format=3 uid="uid://5hy18ojccy3c"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_46mjo"]
 [ext_resource type="Texture2D" uid="uid://m14gwdsn0jaa" path="res://entities/player/player-sprite.png" id="2_5fy6j"]
 [ext_resource type="Texture2D" uid="uid://dam3g7pto483x" path="res://entities/player/player_shadow.png" id="3_87yxn"]
 [ext_resource type="Script" path="res://scenes/secrets/secrets_manager.gd" id="4_f2p77"]
+[ext_resource type="PackedScene" uid="uid://bfylxqdvoq4o8" path="res://components/health_component.tscn" id="5_ny5jd"]
+[ext_resource type="PackedScene" uid="uid://cbp5vlro1ymq2" path="res://components/hurtbox_component.tscn" id="6_uye3h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wsmid"]
 radius = 4.0
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ablky"]
+radius = 5.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 2
 script = ExtResource("1_46mjo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 12)
 shape = SubResource("CapsuleShape2D_wsmid")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_5fy6j")
+centered = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
 z_index = -1
-position = Vector2(0, 10)
+position = Vector2(-8, 13)
 texture = ExtResource("3_87yxn")
+centered = false
 
 [node name="SecretsManager" type="Node" parent="."]
 script = ExtResource("4_f2p77")
 
 [node name="Secrets" type="Node" parent="."]
+
+[node name="HealthComponent" parent="." instance=ExtResource("5_ny5jd")]
+max_health = 100.0
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_uye3h")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(6, 12)
+shape = SubResource("CapsuleShape2D_ablky")

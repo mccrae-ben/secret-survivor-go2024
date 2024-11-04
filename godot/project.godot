@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="MyGame"
+config/name="Secret Survivor"
 run/main_scene="res://scenes/boot/godot/godot_bootsplash_scene.tscn"
 config/features=PackedStringArray("4.4")
 config/icon="res://icon.svg"
@@ -29,6 +29,10 @@ window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
+
+[global_group]
+
+Player=""
 
 [gui]
 
@@ -92,6 +96,13 @@ pause={
 [internationalization]
 
 locale/translations=PackedStringArray("res://i18n/translation.de.translation", "res://i18n/translation.en.translation")
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="World"
+2d_physics/layer_4="Object"
 
 [rendering]
 
