@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3eyc6d863gd3"]
+
+[ext_resource type="PackedScene" uid="uid://crgdyxwecu0x1" path="res://autoloads/game_manager.tscn" id="1_tu6l8"]
+[ext_resource type="PackedScene" uid="uid://dcc8r7q6kcj05" path="res://autoloads/game_events.tscn" id="1_vkeb8"]
+[ext_resource type="PackedScene" uid="uid://5hy18ojccy3c" path="res://entities/player/player.tscn" id="2_8cry1"]
+[ext_resource type="PackedScene" uid="uid://bklebsr8tvq7t" path="res://autoloads/experience_orb.tscn" id="4_gjnup"]
+
+[node name="Main" type="Node"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_tu6l8")]
+
+[node name="GameEvents" parent="." instance=ExtResource("1_vkeb8")]
+
+[node name="Player" parent="." instance=ExtResource("2_8cry1")]
+
+[node name="ExperienceOrb" parent="." instance=ExtResource("4_gjnup")]
