@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://lri8yqgbp8ki"]
+[gd_scene load_steps=11 format=3 uid="uid://lri8yqgbp8ki"]
 
 [ext_resource type="Texture2D" uid="uid://x8dmclwo1byn" path="res://entities/enemy-model-basic.png" id="1_awoc3"]
 [ext_resource type="Script" path="res://entities/ghoul/ghoul_basic.gd" id="1_t6llx"]
 [ext_resource type="PackedScene" uid="uid://bfylxqdvoq4o8" path="res://components/health_component.tscn" id="3_qp75c"]
 [ext_resource type="PackedScene" uid="uid://cbp5vlro1ymq2" path="res://components/hurtbox_component.tscn" id="4_yjk17"]
 [ext_resource type="PackedScene" uid="uid://eacuyp0f7q7j" path="res://components/hitbox_component.tscn" id="5_byvp8"]
+[ext_resource type="PackedScene" uid="uid://bklebsr8tvq7t" path="res://autoloads/experience_orb.tscn" id="6_ijf5r"]
+[ext_resource type="Script" path="res://components/experience_orb_spawner.gd" id="7_tdtp2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rdei8"]
 radius = 6.0
@@ -30,7 +32,13 @@ texture = ExtResource("1_awoc3")
 centered = false
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_qp75c")]
+unique_name_in_owner = true
 max_health = 100.0
+
+[node name="ExperienceOrbSpawner" type="Node" parent="."]
+script = ExtResource("7_tdtp2")
+exp_orb = ExtResource("6_ijf5r")
+drop_percent = 1.0
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_yjk17")]
 collision_layer = 2

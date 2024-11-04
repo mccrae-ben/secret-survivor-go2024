@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3eyc6d863gd3"]
+[gd_scene load_steps=6 format=3 uid="uid://d3eyc6d863gd3"]
 
 [ext_resource type="PackedScene" uid="uid://crgdyxwecu0x1" path="res://autoloads/game_manager.tscn" id="1_tu6l8"]
 [ext_resource type="PackedScene" uid="uid://dcc8r7q6kcj05" path="res://autoloads/game_events.tscn" id="1_vkeb8"]
 [ext_resource type="PackedScene" uid="uid://5hy18ojccy3c" path="res://entities/player/player.tscn" id="2_8cry1"]
-[ext_resource type="PackedScene" uid="uid://bklebsr8tvq7t" path="res://autoloads/experience_orb.tscn" id="4_gjnup"]
 [ext_resource type="PackedScene" uid="uid://cik30de5gaaah" path="res://scenes/ingame_scene.tscn" id="5_euo5n"]
 [ext_resource type="PackedScene" uid="uid://lri8yqgbp8ki" path="res://entities/ghoul/ghoul_basic.tscn" id="6_f5so4"]
 
@@ -15,9 +14,9 @@
 
 [node name="Player" parent="." instance=ExtResource("2_8cry1")]
 
-[node name="ExperienceOrb" parent="." instance=ExtResource("4_gjnup")]
-
 [node name="IngameScene" parent="." instance=ExtResource("5_euo5n")]
 
 [node name="GhoulBasic" parent="." instance=ExtResource("6_f5so4")]
-position = Vector2(233, 31)
+position = Vector2(233, 32)
+
+[node name="GameObjects" type="Node2D" parent="." groups=["GameObjectsParent"]]
