@@ -24,8 +24,6 @@ func increment_experience(exp_to_increment: int):
 		target_experience_to_level_up += TARGET_GROWTH_EXPERIENCE
 		experience_updated.emit(current_experience,target_experience_to_level_up)
 		
-	print("current_lvl",current_level,"current_exp",current_experience,"target",target_experience_to_level_up)	
-		
 	
 func on_exp_granted(_exp_to_grant: int):
 	increment_experience(_exp_to_grant)
