@@ -38,9 +38,6 @@ max_health = 100.0
 [node name="ExperienceOrbSpawner" type="Node" parent="."]
 script = ExtResource("7_tdtp2")
 exp_orb = ExtResource("6_ijf5r")
-drop_percent = null
-number_orbs_to_drop = null
-chance_orb_is_visible = null
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_yjk17")]
 collision_layer = 2
