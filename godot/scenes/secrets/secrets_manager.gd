@@ -16,9 +16,10 @@ func apply_secret_upgrade(_secret_data: SecretData):
 	var has_upgrade = current_upgrades.has(_secret_data.secret_id)
 	
 	if !has_upgrade:
-		print("pass the up bool")
 		var secret_upgrade = _secret_data
-		add_child(secret_upgrade.secret_controller_scene.instantiate())
+		var secret_upgrade_controller_instance = secret_upgrade.secret_controller_scene.instantiate()
+		add_child(secret_upgrade_controller_instance)
+		print_debug("hi",secret_upgrade_controller_instance.name)
 		current_upgrades[_secret_data.secret_id] = {
 			"resource" : _secret_data,
 			"quantity" : 1

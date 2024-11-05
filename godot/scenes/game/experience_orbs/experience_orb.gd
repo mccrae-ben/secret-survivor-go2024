@@ -15,7 +15,6 @@ func should_orb_be_visible(show_orb: bool):
 		visible = true
 	else:
 		visible = false
-	print(show_orb)	
 	
 func on_show_orbs(viz_upgrade_name: String, show_orbs_chance: float):
 	if show_orbs_chance == null:
@@ -23,6 +22,7 @@ func on_show_orbs(viz_upgrade_name: String, show_orbs_chance: float):
 	
 	if show_orbs_chance == 1:
 		visible = true
+		print_debug("orb was hidden but now not")
 	else:
 		visible = false
 

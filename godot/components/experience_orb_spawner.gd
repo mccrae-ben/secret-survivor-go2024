@@ -21,12 +21,15 @@ func _ready() -> void:
 	health_component.died.connect(on_death)
 	
 func on_secret_granted(_secret: SecretData):
-	if _secret.secret_name == "Show Me the Light":
+	
+	if _secret.secret_id == "orb_viz":
+		print_debug("in the on secret granted")
 		do_cool_thing()
 	
 func do_cool_thing():
+	print("hi in orb")
 	for orb: ExperienceOrb in hidden_experience_orbs:
-		print("hi in orb")
+		print_debug("hi fully past all checks")
 		await get_tree().create_timer(1).timeout
 		orb.should_orb_be_visible(true)
 	
