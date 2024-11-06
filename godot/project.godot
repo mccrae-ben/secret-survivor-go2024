@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 UserSettings="*res://settings/user_settings.gd"
 GameEvents="*res://autoloads/game_events.tscn"
 GameManager="*res://autoloads/game_manager.tscn"
-OrbManager="*res://managers/orb_manager.tscn"
+OrbManager="*res://zz_archive/orb_manager.tscn"
 
 [display]
 
@@ -35,6 +35,7 @@ window/stretch/aspect="keep_height"
 
 Player=""
 GameObjectsParent=""
+EnemyLayer=""
 
 [gui]
 

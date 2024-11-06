@@ -9,7 +9,6 @@ extends Node
 @export_range(.25,1) var chance_orb_is_visible: float = .25
 
 var number_orbs_to_drop: float = 3
-@export var hidden_experience_orbs: Array[ExperienceOrb] = []
 @onready var health_component: HealthComponent = %HealthComponent
 
 # Called when the node enters the scene tree for the first time.
@@ -30,11 +29,7 @@ func on_death():
 		var show_orb: bool = false
 		if randf_range(0,1) < GameManager.get_viz_chance(VisibilityTypes.experience_orb):
 			show_orb = true
-			OrbManager.add_experience_orb(exp_orb_instance,false)
-		else:
-			print_debug("hi fully past all checks", exp_orb_instance.name)
-			OrbManager.add_experience_orb(exp_orb_instance,true)
-			hidden_experience_orbs.append(exp_orb_instance)
+
 		exp_orb_instance.should_orb_be_visible(show_orb)
 		exp_orb_instance.set_experience_points(randi_range(orbs_experience_points.x,orbs_experience_points.y))
 		gameobject_parent.add_child(exp_orb_instance)

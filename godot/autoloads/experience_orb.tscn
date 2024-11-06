@@ -12,6 +12,7 @@ size = Vector2(5, 5)
 script = ExtResource("1_d8yl6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 texture = SubResource("PlaceholderTexture2D_lstoo")
 centered = false
 

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c18fck16tbp1y"]
+
+[ext_resource type="Script" path="res://managers/enemy_manager.gd" id="1_jakow"]
+[ext_resource type="PackedScene" uid="uid://lri8yqgbp8ki" path="res://entities/ghoul/ghoul_basic.tscn" id="2_o3lun"]
+
+[node name="EnemyManager" type="Node"]
+script = ExtResource("1_jakow")
+basic_enemy = ExtResource("2_o3lun")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true

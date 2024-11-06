@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bw08uofv7vsv1"]
 
-[ext_resource type="Script" path="res://managers/orb_manager.gd" id="1_2stgg"]
+[ext_resource type="Script" path="res://zz_archive/orb_manager.gd" id="1_2stgg"]
 
 [node name="OrbManager" type="Node"]
 script = ExtResource("1_2stgg")
