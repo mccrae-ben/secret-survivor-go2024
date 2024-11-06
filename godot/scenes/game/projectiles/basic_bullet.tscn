@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1wbobhvdnco"]
+
+[ext_resource type="Script" path="res://scenes/game/projectiles/basic_bullet.gd" id="1_3nyju"]
+[ext_resource type="Texture2D" uid="uid://ifdeoychkwe" path="res://entities/player/projectile.png" id="1_f8if5"]
+[ext_resource type="Resource" uid="uid://dd72nu7vuaa08" path="res://scenes/game/projectiles/basic_bullet.tres" id="2_8gohv"]
+[ext_resource type="PackedScene" uid="uid://eacuyp0f7q7j" path="res://components/hitbox_component.tscn" id="2_dnrnp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ce5y"]
+size = Vector2(6.5, 5.5)
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_3nyju")
+bullet_attributes = ExtResource("2_8gohv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_6ce5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f8if5")
+centered = false
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_dnrnp")]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(2.75, 2.25)
+shape = SubResource("RectangleShape2D_6ce5y")

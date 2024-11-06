@@ -1,8 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://5hy18ojccy3c"]
+[gd_scene load_steps=16 format=3 uid="uid://5hy18ojccy3c"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_46mjo"]
 [ext_resource type="Texture2D" uid="uid://m14gwdsn0jaa" path="res://entities/player/player-sprite.png" id="2_5fy6j"]
+[ext_resource type="Texture2D" uid="uid://clxtb33mlsbrh" path="res://entities/player/player_weapon.png" id="2_e1pty"]
+[ext_resource type="Script" path="res://entities/player/wand_weapon.gd" id="2_jd455"]
 [ext_resource type="Texture2D" uid="uid://dam3g7pto483x" path="res://entities/player/player_shadow.png" id="3_87yxn"]
+[ext_resource type="PackedScene" uid="uid://c1wbobhvdnco" path="res://scenes/game/projectiles/basic_bullet.tscn" id="3_lkfjf"]
 [ext_resource type="Script" path="res://scenes/secrets/secrets_manager.gd" id="4_f2p77"]
 [ext_resource type="PackedScene" uid="uid://bfylxqdvoq4o8" path="res://components/health_component.tscn" id="5_ny5jd"]
 [ext_resource type="Script" path="res://scenes/secrets/secret_data.gd" id="5_rppko"]
@@ -26,6 +29,25 @@ script = ExtResource("1_46mjo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(6, 12)
 shape = SubResource("CapsuleShape2D_wsmid")
+
+[node name="Weapon" type="Node2D" parent="."]
+position = Vector2(7, 13)
+script = ExtResource("2_jd455")
+bullet = ExtResource("3_lkfjf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapon"]
+texture = ExtResource("2_e1pty")
+centered = false
+offset = Vector2(-10.475, -8.49)
+
+[node name="Marker2D" type="Marker2D" parent="Weapon/Sprite2D"]
+unique_name_in_owner = true
+position = Vector2(15, -5)
+
+[node name="Timer" type="Timer" parent="Weapon"]
+wait_time = 0.25
+one_shot = true
+autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_5fy6j")
@@ -61,3 +83,5 @@ damage = 95.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(19, 12.25)
 shape = SubResource("RectangleShape2D_rumsd")
+
+[node name="Camera2D" type="Camera2D" parent="."]

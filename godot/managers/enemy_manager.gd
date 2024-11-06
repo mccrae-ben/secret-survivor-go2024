@@ -21,6 +21,10 @@ func _ready() -> void:
 
 
 func get_spawn_position() -> Vector2:
+	
+	if player == null:
+		return Vector2.ZERO
+	
 	var final_spawn_position = Vector2.ZERO
 	var initial_spawn_position = player.global_position
 	var random_point = Vector2.RIGHT.rotated(randf_range(0,TAU)) 

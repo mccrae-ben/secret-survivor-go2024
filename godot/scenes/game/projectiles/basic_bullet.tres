@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BulletData" load_steps=3 format=3 uid="uid://dd72nu7vuaa08"]
+
+[ext_resource type="Script" path="res://scenes/game/projectiles/bullet_data.gd" id="1_72lpm"]
+[ext_resource type="Texture2D" uid="uid://ifdeoychkwe" path="res://entities/player/projectile.png" id="2_gl0wo"]
+
+[resource]
+script = ExtResource("1_72lpm")
+bullet_name = "Orb of Light"
+speed = 3.0
+texutre = ExtResource("2_gl0wo")

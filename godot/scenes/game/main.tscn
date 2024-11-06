@@ -1,5 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://d3eyc6d863gd3"]
 
+[ext_resource type="Texture2D" uid="uid://douue6klju0t7" path="res://scenes/game/assets/env/temp-bg.png" id="1_okgyp"]
 [ext_resource type="PackedScene" uid="uid://crgdyxwecu0x1" path="res://autoloads/game_manager.tscn" id="1_tu6l8"]
 [ext_resource type="PackedScene" uid="uid://dcc8r7q6kcj05" path="res://autoloads/game_events.tscn" id="1_vkeb8"]
 [ext_resource type="PackedScene" uid="uid://5hy18ojccy3c" path="res://entities/player/player.tscn" id="2_8cry1"]
@@ -7,9 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://bw08uofv7vsv1" path="res://zz_archive/orb_manager.tscn" id="4_fchiq"]
 [ext_resource type="PackedScene" uid="uid://c18fck16tbp1y" path="res://managers/enemy_manager.tscn" id="4_xotib"]
 [ext_resource type="PackedScene" uid="uid://cik30de5gaaah" path="res://scenes/ingame_scene.tscn" id="5_euo5n"]
-[ext_resource type="PackedScene" uid="uid://lri8yqgbp8ki" path="res://entities/ghoul/ghoul_basic.tscn" id="6_f5so4"]
 
 [node name="Main" type="Node"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(320, 180)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("1_okgyp")
 
 [node name="GameManager" parent="." instance=ExtResource("1_tu6l8")]
 
@@ -24,12 +31,6 @@
 [node name="Player" parent="." instance=ExtResource("2_8cry1")]
 
 [node name="IngameScene" parent="." instance=ExtResource("5_euo5n")]
-
-[node name="GhoulBasic" parent="." instance=ExtResource("6_f5so4")]
-position = Vector2(233, 32)
-
-[node name="GhoulBasic2" parent="." instance=ExtResource("6_f5so4")]
-position = Vector2(233, 239)
 
 [node name="GameObjects" type="Node2D" parent="." groups=["GameObjectsParent"]]
 
