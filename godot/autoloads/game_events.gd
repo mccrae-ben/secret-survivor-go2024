@@ -11,4 +11,5 @@ func emit_exp_granted(_exp_amount_to_grant: int):
 	exp_granted.emit(_exp_amount_to_grant)
 	
 func emit_secret_granted(_secret: SecretData):
+	print_debug(_secret.secret_id)
 	secret_granted.emit(_secret)
