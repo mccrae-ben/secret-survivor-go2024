@@ -22,27 +22,28 @@ radius = 5.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rumsd"]
 size = Vector2(24, 5.5)
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_weapon") groups=["Player"]]
 collision_mask = 2
 script = ExtResource("1_46mjo")
+player_weapon = NodePath("Weapon")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(6, 12)
 shape = SubResource("CapsuleShape2D_wsmid")
 
 [node name="Weapon" type="Node2D" parent="."]
-position = Vector2(7, 13)
+position = Vector2(10, 13)
 script = ExtResource("2_jd455")
 bullet = ExtResource("3_lkfjf")
 
 [node name="Sprite2D" type="Sprite2D" parent="Weapon"]
 texture = ExtResource("2_e1pty")
 centered = false
-offset = Vector2(-10.475, -8.49)
+offset = Vector2(-14.475, -7.005)
 
 [node name="Marker2D" type="Marker2D" parent="Weapon/Sprite2D"]
 unique_name_in_owner = true
-position = Vector2(15, -5)
+position = Vector2(11, -4)
 
 [node name="Timer" type="Timer" parent="Weapon"]
 wait_time = 0.25
