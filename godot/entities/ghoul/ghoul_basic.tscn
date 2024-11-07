@@ -17,8 +17,12 @@ height = 24.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xsjpk"]
 resource_local_to_scene = true
 shader = ExtResource("2_d5rai")
+shader_parameter/circle_width = 0.25
+shader_parameter/wait_time = 0.5
+shader_parameter/speed = 1.0
+shader_parameter/alpha_boost = 2.0
 shader_parameter/hit_point = Vector2(0, 0)
-shader_parameter/starting_hit_point = Vector2(0, 0)
+shader_parameter/starting_hit_point = Vector2(1, 0)
 shader_parameter/reset_color = false
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x436o"]
