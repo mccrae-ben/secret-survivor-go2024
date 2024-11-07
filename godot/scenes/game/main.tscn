@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3eyc6d863gd3"]
+[gd_scene load_steps=10 format=3 uid="uid://d3eyc6d863gd3"]
 
 [ext_resource type="Texture2D" uid="uid://douue6klju0t7" path="res://scenes/game/assets/env/temp-bg.png" id="1_okgyp"]
 [ext_resource type="PackedScene" uid="uid://crgdyxwecu0x1" path="res://autoloads/game_manager.tscn" id="1_tu6l8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bw08uofv7vsv1" path="res://zz_archive/orb_manager.tscn" id="4_fchiq"]
 [ext_resource type="PackedScene" uid="uid://c18fck16tbp1y" path="res://managers/enemy_manager.tscn" id="4_xotib"]
 [ext_resource type="PackedScene" uid="uid://cik30de5gaaah" path="res://scenes/ingame_scene.tscn" id="5_euo5n"]
+[ext_resource type="PackedScene" uid="uid://lri8yqgbp8ki" path="res://entities/ghoul/ghoul_basic.tscn" id="9_qar1n"]
 
 [node name="Main" type="Node"]
 
@@ -35,3 +36,6 @@ texture = ExtResource("1_okgyp")
 [node name="GameObjects" type="Node2D" parent="." groups=["GameObjectsParent"]]
 
 [node name="EnemyParent" type="Node2D" parent="." groups=["EnemyLayer"]]
+
+[node name="GhoulBasic" parent="." instance=ExtResource("9_qar1n")]
+position = Vector2(-21, 0)

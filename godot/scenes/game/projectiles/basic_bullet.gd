@@ -25,4 +25,4 @@ func load_bullet_attributes():
 	speed = bullet_attributes.speed
 
 func kill_bullet():
-	queue_free()
+	Callable(queue_free).call_deferred()

@@ -18,7 +18,6 @@ func _ready() -> void:
 	fire_timer.start()
 	fire_timer.timeout.connect(on_fire_rate_timer_timeout)
 	
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#-35, 55
@@ -35,9 +34,6 @@ func _process(delta: float) -> void:
 		bullet_instance.global_position = muzzle_marker.global_position
 		bullet_instance.bullet_target = global_position - get_global_mouse_position()
 		bullet_instance.rotation = (global_position - get_global_mouse_position()).angle()
-	
-	else:
-		shooting.emit(false)
 	
 func on_fire_rate_timer_timeout():
 	can_shoot = true
