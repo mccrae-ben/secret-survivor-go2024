@@ -43,9 +43,8 @@ func _physics_process(delta: float) -> void:
 		if get_global_mouse_position().x > position.x:
 			sprite.flip_h = false
 		
-	
 	move_and_slide()
 	
-func on_shoot():
-	is_shooting = true
+func on_shoot(_is_shooting: bool):
+	is_shooting = _is_shooting
 		
