@@ -14,27 +14,14 @@ uniform vec2 starting_hit_point;
 uniform bool reset_color = false;
 
 void fragment() {
+	if(UV.x >= hit_point.x && UV.y >= hit_point.y)
+	{
+		COLOR.r = .5;
+	}
+
 	if (reset_color==true) {
 		COLOR = texture(TEXTURE,UV);
 	}
-	else {
-		if(starting_hit_point.x == 1.0) //bullet is coming from the right side
-	{
-		if(UV.x >= hit_point.x) {
-			float dist = distance(UV, vec2(1,.5));
-			float mod_dist = dist - mod(TIME * speed, 0.75 + wait_time);
-			COLOR.b += step(0.5 - circle_width / 2.0, mod_dist) - 1.0;
-		}
-	}
-
-	if(starting_hit_point.x == 0.0)
-	{
-		if(UV.x <= hit_point.x) {
-			COLOR.b = 0.5;
-		}
-	}
-	}
-
 }
 
 //void light() {

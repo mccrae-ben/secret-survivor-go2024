@@ -9,7 +9,7 @@ const MAX_SPEED = 5
 @onready var colshape: CollisionShape2D = $CollisionShape2D
 @onready var ap: AnimationPlayer = $AnimationPlayer
 
-signal hit_direction(dir: int) 
+signal hit_direction(dir: Vector2) 
 
 func _ready() -> void:
 	health_component.health_changed.connect(on_hit)
@@ -35,8 +35,8 @@ func on_hit():
 func on_body_entered(other_area: Area2D):
 	if other_area.owner is Bullet:
 		var bullet_area: Bullet = other_area.owner as Bullet
-		var bullet_tar = sign(bullet_area.bullet_target.dot(position))
-		print(bullet_tar)
+		var bullet_tar = bullet_area.bullet_target.sign()
+		print(bullet_tar, "y next", bullet_area.bullet_target.sign())
 		hit_direction.emit(bullet_tar)
 	other_area.get_overlapping_areas()
 	var other_shape_owner = other_area.shape_find_owner(0)

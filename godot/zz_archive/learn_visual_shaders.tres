@@ -96,7 +96,6 @@ void vertex() {
 
 }
 "
-graph_offset = Vector2(-564.823, -17.9716)
 mode = 1
 flags/light_only = false
 nodes/vertex/2/node = SubResource("VisualShaderNodeVectorOp_rbe8v")
