@@ -10,7 +10,8 @@ uniform float speed: hint_range(0.0, 10.0, 0.1) = 1.0;
 uniform float alpha_boost: hint_range(1.0, 5.0, 0.1) = 2.0;
 
 uniform vec2 hit_point;
-uniform vec2 starting_hit_point;
+uniform vec2 start_dir;
+uniform vec2 end_dir;
 uniform bool reset_color = false;
 
 void fragment() {

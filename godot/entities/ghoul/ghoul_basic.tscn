@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://x8dmclwo1byn" path="res://entities/enemy-model-basic.png" id="1_awoc3"]
 [ext_resource type="Script" path="res://entities/ghoul/ghoul_basic.gd" id="1_t6llx"]
-[ext_resource type="Shader" path="res://zz_archive/learntoshade.gdshader" id="2_d5rai"]
+[ext_resource type="Shader" path="res://entities/ghoul/learn_v2.gdshader" id="2_vrnt3"]
 [ext_resource type="PackedScene" uid="uid://bfylxqdvoq4o8" path="res://components/health_component.tscn" id="3_qp75c"]
-[ext_resource type="Script" path="res://entities/ghoul/test_shader.gd" id="4_q1u1c"]
+[ext_resource type="Script" path="res://entities/ghoul/test_shader_2.gd" id="4_tlyx5"]
 [ext_resource type="PackedScene" uid="uid://cbp5vlro1ymq2" path="res://components/hurtbox_component.tscn" id="4_yjk17"]
 [ext_resource type="PackedScene" uid="uid://eacuyp0f7q7j" path="res://components/hitbox_component.tscn" id="5_byvp8"]
 [ext_resource type="PackedScene" uid="uid://bklebsr8tvq7t" path="res://autoloads/experience_orb.tscn" id="6_ijf5r"]
@@ -14,16 +14,14 @@
 radius = 6.0
 height = 24.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xsjpk"]
-resource_local_to_scene = true
-shader = ExtResource("2_d5rai")
-shader_parameter/circle_width = 0.65
-shader_parameter/wait_time = 0.2
-shader_parameter/speed = 0.9
-shader_parameter/alpha_boost = 2.0
-shader_parameter/hit_point = Vector2(1, 1)
-shader_parameter/starting_hit_point = Vector2(1, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ga8b"]
+shader = ExtResource("2_vrnt3")
+shader_parameter/progress = 0.5
+shader_parameter/uv_progress = 1.0
+shader_parameter/hit_x_dir = 0.0
+shader_parameter/set_active = false
 shader_parameter/reset_color = false
+shader_parameter/u_time = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x436o"]
 radius = 8.0
@@ -32,33 +30,6 @@ height = 24.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_otf33"]
 radius = 6.0
 height = 22.0
-
-[sub_resource type="Animation" id="Animation_hniwd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/current_frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [null]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:material:shader_parameter/mix_ratio")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [null]
-}
 
 [sub_resource type="Animation" id="Animation_hiu4c"]
 resource_name = "flash_hit"
@@ -88,6 +59,33 @@ tracks/1/keys = {
 "values": [0.0, 0.35, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_hniwd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/current_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/mix_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_or535"]
 _data = {
 &"flash_hit": SubResource("Animation_hiu4c"),
@@ -103,10 +101,10 @@ position = Vector2(7, 12)
 shape = SubResource("CapsuleShape2D_rdei8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("my_parent")]
-material = SubResource("ShaderMaterial_xsjpk")
+material = SubResource("ShaderMaterial_8ga8b")
 texture = ExtResource("1_awoc3")
 centered = false
-script = ExtResource("4_q1u1c")
+script = ExtResource("4_tlyx5")
 my_parent = NodePath("..")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_qp75c")]
