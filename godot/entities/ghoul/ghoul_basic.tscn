@@ -90,8 +90,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_or535"]
 _data = {
-&"RESET": SubResource("Animation_hniwd"),
-&"flash_hit": SubResource("Animation_hiu4c")
+&"flash_hit": SubResource("Animation_hiu4c"),
+&"RESET": SubResource("Animation_hniwd")
 }
 
 [node name="GhoulBasic" type="CharacterBody2D"]

@@ -19,17 +19,23 @@ func _process(delta: float) -> void:
 		flash_hit_forward()	
 	
 func on_hit(_hit_dir: Vector2):
-	material.set_shader_parameter("reset_color", false)
+	#material.set_shader_parameter("reset_color", false)
 	updated_hit_point = _hit_dir
-	material.set_shader_parameter("starting_hit_point", updated_hit_point)
+	material.set_shader_parameter("hit_point", updated_hit_point)
+	print(updated_hit_point,"hit signal")
 	can_flash_backward = true
 	
 func flash_hit_backward():
 	updated_hit_point.x -= .05
 	updated_hit_point.y -= .05
 	material.set_shader_parameter("hit_point", updated_hit_point)
+	print("mat",material.get("shader_parameter/hit_point"))
+#	if updated_hit_point == Vector2(-1,-1):
+#		updated_hit_point.x += .05
+#		updated_hit_point.y += .05	
+#		material.set_shader_parameter("hit_point", updated_hit_point)
 	
-	if updated_hit_point.x == 0:
+	if updated_hit_point.x == 0 or updated_hit_point.x == 1:
 		material.set_shader_parameter("reset_color", true)
 	#print("mat",material.get("shader_parameter/hit_point"))
 
