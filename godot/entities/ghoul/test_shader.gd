@@ -30,7 +30,6 @@ func on_hit(_hit_dir: Vector2):
 func flash_hit_from_front():
 	updated_hit_point.x -= .05
 	updated_hit_point.y -= .05
-	print(updated_hit_point.y)
 	material.set_shader_parameter("hit_point", updated_hit_point)
 	
 	if updated_hit_point.x <= -1:

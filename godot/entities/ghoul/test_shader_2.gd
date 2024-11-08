@@ -15,18 +15,19 @@ func _process(delta: float) -> void:
 	if flash_from_front:
 		flash(custom_timer())
 			
-func on_hit(_hit_dir: Vector2):
+func on_hit(_hit_dir: Vector2, _hit_angle: float):
 	start_time = 1.0
 	material.set_shader_parameter("reset_color", false)
 	
 	if _hit_dir.x == 1:
 		material.set_shader_parameter("hit_x_dir", _hit_dir.x)
+		material.set_shader_parameter("hit_y_dir", _hit_dir.y)
+		material.set_shader_parameter("hit_angle", _hit_angle)
 		material.set_shader_parameter("uv_progress", 1.0)
 		flash_from_front = true
 		material.set_shader_parameter("set_active", true)
 		
 	if _hit_dir.x == -1:
-		print(_hit_dir, "from back")
 		material.set_shader_parameter("uv_progress", 0.0)
 		material.set_shader_parameter("hit_x_dir", 0.0)
 		flash_from_front = true
@@ -34,10 +35,9 @@ func on_hit(_hit_dir: Vector2):
 
 func flash(_u_time: float):
 	material.set_shader_parameter("u_time", _u_time)
-	print(_u_time)
 	
 func custom_timer() -> float:
-	var speed = .009
+	var speed = .05
 	start_time -= speed
 	if start_time <= 0:
 		flash_from_front = false

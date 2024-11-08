@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://x8dmclwo1byn" path="res://entities/enemy-model-basic.png" id="1_awoc3"]
 [ext_resource type="Script" path="res://entities/ghoul/ghoul_basic.gd" id="1_t6llx"]
-[ext_resource type="Shader" path="res://entities/ghoul/learn_v2.gdshader" id="2_vrnt3"]
+[ext_resource type="Shader" path="res://entities/ghoul/learn_v2.gdshader" id="2_uiem5"]
 [ext_resource type="PackedScene" uid="uid://bfylxqdvoq4o8" path="res://components/health_component.tscn" id="3_qp75c"]
 [ext_resource type="Script" path="res://entities/ghoul/test_shader_2.gd" id="4_tlyx5"]
 [ext_resource type="PackedScene" uid="uid://cbp5vlro1ymq2" path="res://components/hurtbox_component.tscn" id="4_yjk17"]
@@ -15,9 +15,9 @@ radius = 6.0
 height = 24.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ga8b"]
-shader = ExtResource("2_vrnt3")
-shader_parameter/progress = 0.5
-shader_parameter/uv_progress = 1.0
+shader = ExtResource("2_uiem5")
+shader_parameter/progress = 0.4
+shader_parameter/uv_progress = 0.0
 shader_parameter/hit_x_dir = 0.0
 shader_parameter/set_active = false
 shader_parameter/reset_color = false
@@ -88,8 +88,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_or535"]
 _data = {
-&"flash_hit": SubResource("Animation_hiu4c"),
-&"RESET": SubResource("Animation_hniwd")
+&"RESET": SubResource("Animation_hniwd"),
+&"flash_hit": SubResource("Animation_hiu4c")
 }
 
 [node name="GhoulBasic" type="CharacterBody2D"]
@@ -140,3 +140,9 @@ shape = SubResource("CapsuleShape2D_otf33")
 libraries = {
 &"": SubResource("AnimationLibrary_or535")
 }
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 0.698039, 1)

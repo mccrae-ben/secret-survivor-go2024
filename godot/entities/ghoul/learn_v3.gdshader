@@ -3,6 +3,8 @@ shader_type canvas_item;
 uniform float progress : hint_range(0.0, 1.0, 0.1);
 uniform float uv_progress : hint_range(0.0, 1.0, 0.1);
 uniform float hit_x_dir = 0.0;
+uniform float hit_y_dir = 0.0;
+uniform float hit_angle = 0.0;
 uniform bool set_active = false;
 uniform bool reset_color = false;
 uniform float u_time;
@@ -20,23 +22,24 @@ void fragment() {
 	vec4 original_color = texture(TEXTURE, UV);
 	COLOR = texture(TEXTURE, UV);
 
-	if(set_dir() == 1.0 && set_active) //getting hit from the right
+	if(hit_x_dir == 1.0 && hit_y_dir == 1.0 && set_active) //getting hit from the right
 	//1.0 - time until 0
-	{
-		if(UV.x <= uv_progress && COLOR.a > 0.0) 
+	{ //this is 1,1 so when UV.x  is .2 and the progress is .75
+		if(vec2(hit_x_dir,hit_y_dir) + u_time == UV) 
 		{
-			float new_progress = step((UV.x - .1),uv_progress - ((1.0 - u_time)));
-			COLOR = vec4(1.0 - new_progress,1.0 - new_progress, 0.75 -  new_progress, (COLOR.r + COLOR.g + COLOR.b));
+			float new_progress = step((UV.x - UV.y),uv_progress - ((1.0 - u_time)));
+							
+			COLOR = vec4(COLOR.r + new_progress,COLOR.g + new_progress,COLOR.b + new_progress, COLOR.a);
 		}
 	}	
 	
-	if(set_dir() == 0.0 && set_active) //getting hit from the right
+	if(set_dir() == 0.0 && set_active) //getting hit from the left
 	//1.0 - time until 0
 	{
-		if(UV.x >= uv_progress && COLOR.a > 0.0) 
+		if(UV.x >= uv_progress) 
 		{
 			float new_progress = step(UV.x,uv_progress + ((1.0 - u_time)));
-			COLOR = vec4(1.0 - new_progress,1.0 - new_progress, 0.75 -  new_progress, (COLOR.r + COLOR.g + COLOR.b));
+			COLOR = vec4(COLOR.r + new_progress,COLOR.g + new_progress,COLOR.b + new_progress, COLOR.a);
 		}
 	}
 	
