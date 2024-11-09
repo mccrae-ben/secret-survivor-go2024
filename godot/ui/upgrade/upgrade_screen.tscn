@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsxvoh4ad721y"]
+
+[ext_resource type="Theme" uid="uid://dnq3anj4kxg2i" path="res://ui/default_theme.tres" id="1_e6brf"]
+[ext_resource type="Script" path="res://ui/upgrade/secret_upgrade_card.gd" id="2_5bi3j"]
+[ext_resource type="Resource" uid="uid://c0rhln0gqcjld" path="res://scenes/secrets/secret/show_experience_orbs_secret.tres" id="3_hak0u"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_e6brf")
+
+[node name="CardContainer" type="HBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("1_e6brf")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/CardContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+script = ExtResource("2_5bi3j")
+test_secret = ExtResource("3_hak0u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CardContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MarginContainer/CardContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_e6brf")
+text = "Here We Go."
+
+[node name="Description" type="Label" parent="MarginContainer/CardContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme = ExtResource("1_e6brf")
+theme_type_variation = &"GraphFrameTitleLabel"
+text = "Lorem ipsum dolor amit sit and then i put in a long thing ehre"
+autowrap_mode = 2

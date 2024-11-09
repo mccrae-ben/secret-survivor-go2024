@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://douue6klju0t7" path="res://scenes/game/assets/env/temp-bg.png" id="1_okgyp"]
 [ext_resource type="PackedScene" uid="uid://crgdyxwecu0x1" path="res://autoloads/game_manager.tscn" id="1_tu6l8"]
 [ext_resource type="PackedScene" uid="uid://dcc8r7q6kcj05" path="res://autoloads/game_events.tscn" id="1_vkeb8"]
+[ext_resource type="PackedScene" uid="uid://dp805ulbqpkoj" path="res://managers/secrets_manager.tscn" id="2_2uslx"]
 [ext_resource type="PackedScene" uid="uid://5hy18ojccy3c" path="res://entities/player/player.tscn" id="2_8cry1"]
 [ext_resource type="PackedScene" uid="uid://bgoos1qpo8p7r" path="res://managers/experience_manager.tscn" id="3_ppeip"]
-[ext_resource type="PackedScene" uid="uid://bw08uofv7vsv1" path="res://zz_archive/orb_manager.tscn" id="4_fchiq"]
 [ext_resource type="PackedScene" uid="uid://c18fck16tbp1y" path="res://managers/enemy_manager.tscn" id="4_xotib"]
 [ext_resource type="PackedScene" uid="uid://cik30de5gaaah" path="res://scenes/ingame_scene.tscn" id="5_euo5n"]
 [ext_resource type="PackedScene" uid="uid://lri8yqgbp8ki" path="res://entities/ghoul/ghoul_basic.tscn" id="9_qar1n"]
@@ -19,6 +19,9 @@ repeat_times = 4
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 texture = ExtResource("1_okgyp")
 
+[node name="SecretsManager" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("2_2uslx")]
+experience_manager = NodePath("../ExperienceManager")
+
 [node name="GameManager" parent="." instance=ExtResource("1_tu6l8")]
 
 [node name="GameEvents" parent="." instance=ExtResource("1_vkeb8")]
@@ -26,8 +29,6 @@ texture = ExtResource("1_okgyp")
 [node name="ExperienceManager" parent="." instance=ExtResource("3_ppeip")]
 
 [node name="EnemyManager" parent="." instance=ExtResource("4_xotib")]
-
-[node name="OrbManager" parent="." instance=ExtResource("4_fchiq")]
 
 [node name="Player" parent="." instance=ExtResource("2_8cry1")]
 

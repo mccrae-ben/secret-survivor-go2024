@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://5hy18ojccy3c"]
+[gd_scene load_steps=13 format=3 uid="uid://5hy18ojccy3c"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_46mjo"]
 [ext_resource type="Texture2D" uid="uid://m14gwdsn0jaa" path="res://entities/player/player-sprite.png" id="2_5fy6j"]
@@ -6,10 +6,7 @@
 [ext_resource type="Script" path="res://entities/player/wand_weapon.gd" id="2_jd455"]
 [ext_resource type="Texture2D" uid="uid://dam3g7pto483x" path="res://entities/player/player_shadow.png" id="3_87yxn"]
 [ext_resource type="PackedScene" uid="uid://c1wbobhvdnco" path="res://scenes/game/projectiles/basic_bullet.tscn" id="3_lkfjf"]
-[ext_resource type="Script" path="res://scenes/secrets/secrets_manager.gd" id="4_f2p77"]
 [ext_resource type="PackedScene" uid="uid://bfylxqdvoq4o8" path="res://components/health_component.tscn" id="5_ny5jd"]
-[ext_resource type="Script" path="res://scenes/secrets/secret_data.gd" id="5_rppko"]
-[ext_resource type="Resource" uid="uid://c0rhln0gqcjld" path="res://scenes/secrets/secret/show_experience_orbs_secret.tres" id="6_cn0qj"]
 [ext_resource type="PackedScene" uid="uid://eacuyp0f7q7j" path="res://components/hitbox_component.tscn" id="6_rqon2"]
 [ext_resource type="PackedScene" uid="uid://cbp5vlro1ymq2" path="res://components/hurtbox_component.tscn" id="6_uye3h"]
 
@@ -59,10 +56,6 @@ z_index = -1
 position = Vector2(-8, 13)
 texture = ExtResource("3_87yxn")
 centered = false
-
-[node name="SecretsManager" type="Node" parent="."]
-script = ExtResource("4_f2p77")
-secrets_pool = Array[ExtResource("5_rppko")]([ExtResource("6_cn0qj")])
 
 [node name="Secrets" type="Node" parent="."]
 
